@@ -1,0 +1,91 @@
+------------------LAYER 1 -Stagging ------------------------------------------------------------------
+------------------Description-------------------------------------------------------------------------
+Rating. RaEach platform provides:
+
+Rating. Ratings are expressed in various grading systems (e.g. 0-10, 0-100%).
+Some of the platforms additionally provide ratings split by different categories (not standardised 
+between platforms). 
+Movie title
+Genre(s). A movie can be described with multiple genres. Genres are not standardised between platforms and
+ may not match between providers (e.g. one can return Drama, Documentary where another one can describe the
+ same movie as Drama, Mystery).
+------------------End Description------------------------------------------------------------------------
+------------------
+%For each platform we define a table as main source content like platform_1,platform_2,platform_3 ...----
+%The fields are standardised  for all tables that exists in this layer-----------------------------------
+Fileds :
+id_systemX : is a numeric key generated automatically when the movie is added - type  numeric ,
+platform_nm : is a description of the platfrom
+dt_mv_recorded : is the system date when the movie was added   - type date,
+dt_mv_produced date : is the  date when the movie was produced - type date,   
+rating number  is the original  rating from the platform source - type number,  ,
+movie_nm varchar2(400) is the name of the movie accordingle with the platform source  --  type varchar ,
+movie_gen_desc varchar2(400) is the description clasification like Drama,History etc  --  type varchar ,
+number_of_votes is a numeric expression about how many people have evaluated the movie -- number; 
+--the list of columns my be more complex
+
+----------------LAYER 1 SCRIPTS-------------------------------------------------------------------------- 
+drop table platform_1;
+create table platform_1
+(
+id_system1 number,
+platform_nm varchar(400),
+dt_mv_recorded   date,
+dt_mv_produced date ,
+rating number ,
+movie_nm varchar2(400),
+movie_gen_desc varchar2(400),
+number_of_votes number 
+);
+
+
+
+drop table platform_2;
+
+create table platform_2
+(
+id_system2 number,
+platform_nm varchar(400),
+dt_mv_recorded   date,
+dt_mv_produced date ,
+rating number ,
+movie_nm varchar2(400),
+movie_gen_desc varchar2(400),
+number_of_votes number 
+);
+
+
+drop table platform_3;
+
+create table platform_3
+(
+id_system3 number,
+platform_nm varchar(400),
+dt_mv_recorded   date,
+dt_mv_produced date ,
+rating number ,
+movie_nm varchar2(400),
+movie_gen_desc varchar2(400),
+number_of_votes number 
+);
+
+commit ; 
+
+------similar for temporary table in my case roten ans imdb
+will work on appending data -- look-up method
+--------PRIMARY BULK LOAD --------------------------------------------------------------------------------
+truncate table listXXX
+insert into table listxxx
+
+
+--------secondary delta load  LOAD --------------------------------------------------------------------------------
+merge into tables listtXXX
+where year > 2020 etc
+
+
+
+
+
+
+
+
